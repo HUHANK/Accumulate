@@ -1,0 +1,35 @@
+# 基本语句
+from git import Repo    # 导入repo模块
+repoPath = r'F:\workprojects\xxx\xxx' # 本地git库路径
+repo = Repo(repoPath)   # 获取一个库
+print(repo.branches)    # 获取所有的分支
+print(repo.untracked_files) # 获取所有未加入版本的文件
+print(repo.active_branch)   # 当前活动分支
+print(repo.active_branch)   # 当前活动分支
+print(repo.head.reference)  # 当前活动分支
+print(repo.remotes.origin)  # 获取一个运程库
+origin = repo.remotes.origin
+print(origin.exists())      # 判断一个远程库是否存在
+
+#  切换分支
+from git import Repo
+repoPath = r'F:\workprojects\xxx\xxx'
+repo = Repo(repoPath)
+master = repo.heads.master          # 获取master分支
+curBranch = repo.head.reference     # 当前活动分支
+if curBranch != master:
+    # repo.head.reference = master    # 切换到master,方法一
+    repo.heads.master.checkout()    # 切换到master,方法二
+
+
+# 强制放弃本地修改（新增、删除文件）
+# 用命令行的方式
+#   下面的语句相当于，两条命令行：git checkout . && git clean -df
+from git import Repo
+repoPath = r'F:\workprojects\xxx\xxx'
+repo = Repo(repoPath)
+repo.git.checkout('.')
+repo.git.clean('-df')
+
+# 拉取
+# 没有成功
