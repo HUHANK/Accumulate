@@ -1,0 +1,22 @@
+以下在git log时无效：
+git config --global core.quotepath false  		# 显示 status 编码
+$ git config --global gui.encoding utf-8			# 图形界面编码
+$ git config --global i18n.commit.encoding utf-8	# 提交信息编码
+$ git config --global i18n.logoutputencoding utf-8	# 输出 log 编码
+$ export LESSCHARSET=utf-8
+
+
+windows 下：set LESSCHARSET=utf-8  有用（可以环境变量中设置）
+
+
+在查看修改历史时，对于中文文件名，git log和gitk都会出现类似的乱码：
+
+sepg\344\274\232\350\256\256\346\200\273\347\273\223.doc
+
+
+
+通过看git的源码，找到了解决方案：
+
+git config core.quotepath false
+
+core.quotepath设为false的话，就不会对0x80以上的字符进行quote。中文显示正常
