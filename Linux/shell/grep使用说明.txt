@@ -1,0 +1,10 @@
+grep
+
+    -r:
+
+    -w, --word-regexp:
+        Select only those lines containing matches that form whole words.(整字匹配)
+
+    -x, --line-regexp:
+        Select only those matches that exactly match the whole line.  (-x is specified by POSIX.)(整行匹配)
+
