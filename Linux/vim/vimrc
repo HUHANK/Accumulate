@@ -1,0 +1,72 @@
+set tags+=/ksapp/back/batch/.tags
+set tags+=/ksapp/back/hyl/ssh/.tags
+
+set ts=4
+set bg=dark
+set nu
+set encoding=utf-8
+set fileencodings=utf-8,gb2312,ucs-bom,cp936
+set fileencoding=gb2312
+set termencoding=gb2312
+syntax on
+set cindent
+set clipboard+=unamed
+
+
+
+
+
+
+"--------------------------------------------------------
+"vundle的配置
+"--------------------------------------------------------
+set nocompatible
+filetype off 
+
+set rtp+=~/.vim/bundle/Vundle.vim
+
+"vundle初始化
+call vundle#begin()
+
+"在此处输入安装的插件
+"Plugin 'gmarik/Vundle.vim'
+Plugin 'file:///ksapp/back/.vim/bundle/Vundle.vim'
+
+Plugin 'file:////ksapp/back/.vim/bundle/vim-airline'
+Plugin 'file:///ksapp/back/.vim/bundle/Auto-Pairs'
+Plugin 'file:///ksapp/back/.vim/bundle/nerdtree'
+
+call vundle#end()
+
+filetype plugin indent on
+
+
+"--------------------------------------------------------
+"vim-airline 的配置
+"--------------------------------------------------------
+
+set laststatus=2
+set t_Co=256
+
+let g:airline#extensions#tabline#enabled = 1
+
+"--------------------------------------------------------
+"Auto-Pairs 的配置
+"--------------------------------------------------------
+let g:AutoPairsFlyMode = 1
+
+"--------------------------------------------------------
+"nerdtree 的配置
+"--------------------------------------------------------
+"autocmd vimenter * NERDTree
+
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+"let g:NERDTreeDirArrowExpandable = '?'
+"let g:NERDTreeDirArrowCollapsible = '?'
+
+
+
+
+
