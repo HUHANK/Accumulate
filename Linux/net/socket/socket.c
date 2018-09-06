@@ -154,7 +154,7 @@ int socket_recv(int sock, char* buf, const int buf_len) {
     rc = recv(sock, buf, buf_len, 0);
     if (rc == 0) {
         printf("client is close!\n");
-        return rc;
+        return -1;
     } else if (rc < 0) {
         /*
          * recv错误信息：Connection reset by peer

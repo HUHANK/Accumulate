@@ -1,3 +1,3 @@
 
-all: socket.c main.c
-    $(CC) -Wall -g socket.c main.c
+all: socket.c ae_poll.c main.c
+    gcc -Wall -g socket.c ae_poll.c main.c

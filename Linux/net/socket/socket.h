@@ -1,7 +1,6 @@
 #ifndef SOCKET_H
 #define SOCKET_H
 
-#define ERRMSG strerror(errno)
 
 /*创建服务socket*/
 int server_socket(int port);

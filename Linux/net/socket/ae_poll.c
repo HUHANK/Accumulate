@@ -46,7 +46,14 @@ int aeDelEvent(const int epfd, const int fd, const int mask) {
     return aeEventOpt(epfd, fd, mask, EPOLL_CTL_DEL);
 }
 
+/*等待所监听文件描述符上有事件发生*/
 int aePoll(const int epfd, struct epoll_event *events, const int evSize) {
-
+    int ret = 0;
+    ret = epoll_wait(epfd, events, evSize, -1);
+    if (ret < 0) {
+        printf("epoll wait failed! error message: %s\n", ERRMSG);
+        return -1;
+    }
+    return ret;
 }
 
